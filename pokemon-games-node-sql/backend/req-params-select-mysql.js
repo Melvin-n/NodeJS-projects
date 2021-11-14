@@ -3,13 +3,15 @@ const app = express()
 const port = 4500
 const mysql = require('mysql')
 const { createConnection } = require('net')
+require('dotenv').config()
+
 
 app.use(express.json())
 
 const con = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: 'password',
+    user: process.env.USER,
+    password: process.env.PASSWORD,
     database: 'pokemongames'
 })
 
